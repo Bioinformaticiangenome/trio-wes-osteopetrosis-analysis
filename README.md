@@ -367,3 +367,34 @@ The initial variant calling produced 35,551 raw variant records.
 The resulting VCF file was:
 
 variants/family.raw.gq.vcf
+
+---
+
+## Variant Normalization
+
+The raw VCF file was normalized using BCFtools to standardize variant
+representation and split multiallelic variants into separate records.
+
+```bash
+bcftools norm \
+-f reference/hg19_chr8.fa \
+-m -any \
+variants/family.raw.gq.vcf \
+-o variants/family.gq.norm.vcf
+```
+
+The normalization process:
+
+* Split multiallelic variants into separate records.
+* Realigned variants where necessary.
+* Standardized variant representation using the reference genome.
+
+The normalization process produced 38,027 variant records from the
+original 35,551 raw records.
+
+The increase in record count is mainly due to splitting multiallelic
+variants into separate records.
+
+The normalized VCF file was:
+
+variants/family.gq.norm.vcf
