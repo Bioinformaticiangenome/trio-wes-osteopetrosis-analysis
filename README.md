@@ -178,3 +178,36 @@ chromosome 8.
 | BCFtools | Variant normalization and querying |
 | SnpEff | Functional annotation |
 | Slivar | Family-based inheritance filtering |
+
+---
+
+## Quality Control
+
+FastQC was used to assess the quality of all six FASTQ files, followed by
+MultiQC to summarize the results.
+
+The sequencing data showed generally good quality, with:
+
+- Approximately 101 bp read length
+- Approximately 44% GC content
+- Duplication levels of approximately 21–25%
+- Predominantly high Phred quality scores
+
+A bimodal per-sequence GC-content distribution was observed. This pattern is
+compatible with exome-capture sequencing and was therefore not treated as
+sufficient reason for trimming.
+
+### QC Summary
+
+| Sample | Read Length | GC Content | Duplication |
+|---|---:|---:|---:|
+| Father R1 | 101 bp | 44% | 23.2% |
+| Father R2 | 101 bp | 44% | 21.4% |
+| Mother R1 | 101 bp | 44% | 23.3% |
+| Mother R2 | 101 bp | 44% | 21.9% |
+| Proband R1 | 101 bp | 44% | 25.4% |
+| Proband R2 | 101 bp | 44% | 23.1% |
+
+The MultiQC report was generated as:
+
+`qc/multiqc_report.html`
