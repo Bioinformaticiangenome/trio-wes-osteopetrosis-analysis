@@ -248,7 +248,7 @@ raw_data/mother_R1.fq.gz \
 raw_data/mother_R2.fq.gz \
 | samtools sort -o aligned_data/mother.sorted.bam
 ```
-####Proband
+#### Proband
 
 ```bash
 bwa mem -t 4 -R '@RG\tID:002\tSM:proband\tPL:ILLUMINA' \
