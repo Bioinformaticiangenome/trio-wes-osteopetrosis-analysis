@@ -341,3 +341,29 @@ samtools index aligned_data/proband.dedup.bam
 
 The processed BAM files were used as input for downstream joint variant
 calling.
+
+---
+
+## Variant Calling
+
+After BAM processing, FreeBayes was used to perform joint variant calling
+across the father, mother, and proband.
+
+Joint calling was performed using the processed and deduplicated BAM files.
+
+```bash
+freebayes --genotype-qualities \
+-f reference/hg19_chr8.fa \
+aligned_data/father.dedup.bam \
+aligned_data/mother.dedup.bam \
+aligned_data/proband.dedup.bam \
+> variants/family.raw.gq.vcf
+```
+The --genotype-qualities option was used to include genotype quality (GQ)
+information in the resulting VCF file.
+
+The initial variant calling produced 35,551 raw variant records.
+
+The resulting VCF file was:
+
+variants/family.raw.gq.vcf
