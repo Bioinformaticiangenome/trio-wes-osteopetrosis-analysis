@@ -1,4 +1,4 @@
-# trio-wes-osteopetrosis-analysis
+  # trio-wes-osteopetrosis-analysis
 Command-line trio WES analysis for candidate variant identification in osteopetrosis
 # Trio WES Variant Analysis for Osteopetrosis
 
@@ -163,3 +163,18 @@ The reference was obtained from the training dataset resources.
 
 Because the reference contains chromosome 8 only, the analysis is restricted to
 chromosome 8.
+
+---
+
+## Software and Tools
+
+| Tool | Purpose |
+|---|---|
+| FastQC | Sequencing quality control |
+| MultiQC | QC report aggregation |
+| BWA-MEM | Read alignment |
+| SAMtools | BAM processing and duplicate removal |
+| FreeBayes | Joint variant calling |
+| BCFtools | Variant normalization and querying |
+| SnpEff | Functional annotation |
+| Slivar | Family-based inheritance filtering |
