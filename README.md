@@ -262,3 +262,82 @@ Why BWA-MEM?
 
 BWA-MEM was used to align the sequencing reads to the reference genome and
 produce coordinate-sorted BAM files for downstream variant analysis.
+
+---
+
+## BAM Processing
+
+After read alignment, SAMtools was used to process the aligned reads before
+variant calling.
+
+The processing workflow included:
+
+1. Filtering mapped read pairs
+2. Name collating
+3. Mate information processing
+4. Coordinate sorting
+5. Duplicate removal
+6. BAM indexing
+
+### Filtering
+
+Reads were filtered using SAMtools to retain records where both the read and
+its mate were mapped.
+
+```bash
+samtools view -b -F 12 aligned_data/father.sorted.bam \
+-o aligned_data/father.filtered.bam
+```
+
+The same filtering approach was applied to the mother and proband.
+
+### Duplicate Removal
+
+A modern SAMtools duplicate-removal workflow was used.
+
+For each sample, the steps were:
+
+```bash
+samtools collate -o aligned_data/father.namecollate.bam \
+aligned_data/father.filtered.bam
+
+samtools fixmate -m aligned_data/father.namecollate.bam \
+aligned_data/father.fixmate.bam
+
+samtools sort -o aligned_data/father.fixmate.sorted.bam \
+aligned_data/father.fixmate.bam
+
+samtools markdup -r aligned_data/father.fixmate.sorted.bam \
+aligned_data/father.dedup.bam
+```
+
+The same workflow was applied to the mother and proband.
+
+### BAM Quality Assessment
+
+SAMtools `flagstat` was used to evaluate the final BAM files.
+
+```bash
+samtools flagstat aligned_data/father.dedup.bam
+samtools flagstat aligned_data/mother.dedup.bam
+samtools flagstat aligned_data/proband.dedup.bam
+```
+
+The final BAM files were indexed:
+
+```bash
+samtools index aligned_data/father.dedup.bam
+samtools index aligned_data/mother.dedup.bam
+samtools index aligned_data/proband.dedup.bam
+```
+
+### Final BAM Statistics
+
+| Sample | Primary Reads | Mapped | Properly Paired | Singletons |
+|---|---:|---:|---:|---:|
+| Father | 2,879,684 | 100% | ~99.67% | 0 |
+| Mother | 2,528,804 | 100% | ~99.75% | 0 |
+| Proband | 3,197,114 | 100% | ~99.69% | 0 |
+
+The processed BAM files were used as input for downstream joint variant
+calling.
