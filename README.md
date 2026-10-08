@@ -211,3 +211,54 @@ sufficient reason for trimming.
 The MultiQC report was generated as:
 
 `qc/multiqc_report.html`
+
+---
+
+## Read Alignment
+
+Paired-end reads were aligned to the chromosome 8 hg19 reference using
+BWA-MEM.
+
+Sample-specific read groups were included for each member of the family trio:
+
+- Father
+- Mother
+- Proband
+
+The aligned reads were directly sorted into BAM format using SAMtools.
+
+### Alignment Commands
+
+#### Father
+
+```bash
+bwa mem -t 4 -R '@RG\tID:000\tSM:father\tPL:ILLUMINA' \
+reference/hg19_chr8.fa \
+raw_data/father_R1.fq.gz \
+raw_data/father_R2.fq.gz \
+| samtools sort -o aligned_data/father.sorted.bam
+```
+
+#### Mother
+
+```bash
+bwa mem -t 4 -R '@RG\tID:001\tSM:mother\tPL:ILLUMINA' \
+reference/hg19_chr8.fa \
+raw_data/mother_R1.fq.gz \
+raw_data/mother_R2.fq.gz \
+| samtools sort -o aligned_data/mother.sorted.bam
+```
+####Proband
+
+```bash
+bwa mem -t 4 -R '@RG\tID:002\tSM:proband\tPL:ILLUMINA' \
+reference/hg19_chr8.fa \
+raw_data/proband_R1.fq.gz \
+raw_data/proband_R2.fq.gz \
+| samtools sort -o aligned_data/proband.sorted.bam
+```
+
+Why BWA-MEM?
+
+BWA-MEM was used to align the sequencing reads to the reference genome and
+produce coordinate-sorted BAM files for downstream variant analysis.
