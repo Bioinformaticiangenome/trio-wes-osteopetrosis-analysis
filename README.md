@@ -497,3 +497,53 @@ establish that a variant is disease-causing.
 
 The candidate variants were subsequently reviewed in the context of the
 family genotypes, sequencing evidence, and known gene-disease associations.
+
+---
+
+## CA2 Candidate Analysis
+
+Among the prioritized variants, the variant identified in the **CA2** gene
+was considered a strong candidate based on the inheritance pattern and
+known gene-disease association.
+
+### Variant Details
+
+| Attribute | Result |
+|---|---|
+| Gene | CA2 |
+| Chromosome | 8 |
+| Position | 86,385,980 |
+| Reference Allele | G |
+| Alternate Allele | A |
+| Coding Change | c.291G>A |
+| Protein Change | p.Trp97* |
+| Predicted Effect | Stop-gained |
+| SnpEff Impact | HIGH |
+
+### Genotype Pattern
+
+| Sample | Genotype | Interpretation |
+|---|---|---|
+| Father | 0/1 | Heterozygous |
+| Mother | 0/1 | Heterozygous |
+| Proband | 1/1 | Homozygous alternate |
+
+### Biological Relevance
+
+The CA2 gene encodes carbonic anhydrase II, an enzyme involved in
+acid-base balance and bone resorption.
+
+Biallelic pathogenic variants in CA2 are associated with autosomal-recessive
+osteopetrosis with renal tubular acidosis.
+
+The identified variant is predicted to introduce a premature stop codon,
+potentially disrupting protein function. Its predicted effect, trio genotype
+pattern, and the known association between CA2 and osteopetrosis support
+prioritizing it for further investigation.
+
+### Interpretation and Limitations
+
+This result represents a strong candidate identified in a training
+dataset, not a confirmed clinical diagnosis. Further evidence, including
+independent variant-level clinical classification and clinical correlation,
+would be required to establish pathogenicity.
