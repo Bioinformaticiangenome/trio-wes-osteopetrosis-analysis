@@ -547,3 +547,49 @@ This result represents a strong candidate identified in a training
 dataset, not a confirmed clinical diagnosis. Further evidence, including
 independent variant-level clinical classification and clinical correlation,
 would be required to establish pathogenicity.
+
+---
+
+## Limitations
+
+Several limitations should be considered when interpreting the results:
+
+- **Restricted reference region:** The analysis used a reference FASTA
+  containing chromosome 8 only. Therefore, the analysis was restricted to
+  variants represented on chromosome 8 and does not constitute an
+  unrestricted exome analysis.
+- **Training dataset:** This project was developed for educational and
+  portfolio purposes and is not intended for clinical diagnosis.
+- **Variant interpretation:** Predicted variant impact does not establish
+  clinical pathogenicity.
+- **Further validation:** Independent clinical evidence and additional
+  validation would be required to establish the significance of a candidate
+  variant.
+
+## Conclusion
+
+This project demonstrates a command-line workflow for trio exome variant
+analysis, including quality control, read alignment, BAM processing, joint
+variant calling, normalization, functional annotation, and inheritance-based
+filtering.
+
+The analysis identified 292 variants matching the selected recessive
+inheritance and sequencing-quality criteria. Four variants with HIGH
+predicted impact were prioritized for further investigation.
+
+Among these candidates, a variant in **CA2** was considered a strong
+candidate because its predicted molecular consequence, trio genotype
+pattern, and known association with autosomal-recessive osteopetrosis with
+renal tubular acidosis were consistent with the training phenotype.
+
+These findings illustrate how bioinformatics tools can support candidate
+variant prioritization while highlighting the need for careful interpretation
+and independent evidence before drawing clinical conclusions.
+
+## Acknowledgements
+
+This project was inspired by the Galaxy Training Network tutorial:
+
+**Exome sequencing data analysis for diagnosing a genetic disease**
+
+https://training.galaxyproject.org/training-material/topics/variant-analysis/tutorials/exome-seq/tutorial.html
