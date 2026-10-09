@@ -471,3 +471,29 @@ The resulting VCF file was:
 `variants/family.recessive.pass.vcf`
 
 These variants were subsequently examined to prioritize potential disease-associated candidates.
+
+---
+
+## Candidate Variant Prioritization
+
+After autosomal-recessive filtering, the remaining variants were examined
+to identify candidates with potentially high-impact effects.
+
+Variant annotations from SnpEff were used to prioritize variants based on
+their predicted molecular consequences.
+
+Four high-impact candidate variants were identified:
+
+| Gene | Variant Effect | Predicted Impact |
+|---|---|---|
+| LPL | Stop-gained | HIGH |
+| PEBP4 | Frameshift | HIGH |
+| CA2 | Stop-gained | HIGH |
+| TBC1D31 | Splice-donor variant | HIGH |
+
+These variants were selected for further investigation based on their
+predicted effects. However, a HIGH impact annotation alone does not
+establish that a variant is disease-causing.
+
+The candidate variants were subsequently reviewed in the context of the
+family genotypes, sequencing evidence, and known gene-disease associations.
