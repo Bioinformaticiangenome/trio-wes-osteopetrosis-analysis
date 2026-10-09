@@ -398,3 +398,34 @@ variants into separate records.
 The normalized VCF file was:
 
 variants/family.gq.norm.vcf
+
+---
+
+## Functional Annotation
+
+SnpEff was used to annotate the normalized variants and predict their
+potential effects on genes and transcripts.
+
+The `hg19` SnpEff database was used for annotation.
+
+```bash
+snpEff -v hg19 \
+variants/family.gq.norm.vcf \
+> variants/family.gq.ann.vcf
+```
+The annotation step added functional information to the VCF file, including
+the affected gene, variant effect, and predicted impact.
+
+The main impact categories reported by SnpEff were:
+
+* HIGH — potentially severe molecular effect
+* MODERATE — potentially moderate molecular effect
+* LOW — lower predicted molecular effect
+* MODIFIER — effects with limited or uncertain functional consequence
+
+These impact categories describe predicted molecular effects and should not
+be interpreted as clinical pathogenicity classifications.
+
+The annotated VCF file was:
+
+variants/family.gq.ann.vcf
