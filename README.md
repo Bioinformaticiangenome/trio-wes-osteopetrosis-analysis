@@ -429,3 +429,45 @@ be interpreted as clinical pathogenicity classifications.
 The annotated VCF file was:
 
 variants/family.gq.ann.vcf
+
+---
+
+## Autosomal-Recessive Variant Filtering
+
+Slivar was used to filter variants according to an autosomal-recessive
+inheritance model.
+
+The analysis focused on variants matching the following genotype pattern:
+
+- **Proband:** Homozygous alternate (1/1)
+- **Father:** Heterozygous (0/1)
+- **Mother:** Heterozygous (0/1)
+
+Additional genotype quality (GQ) and read depth (DP) thresholds were
+applied to improve confidence in the selected variants.
+
+The filtering criteria were:
+
+- GQ ≥ 20 for all three individuals
+- DP ≥ 6 for all three individuals
+- Proband genotype: 1/1
+- Both parents' genotypes: 0/1
+
+The filtering was performed using Slivar:
+
+```bash
+slivar expr \
+--vcf variants/family.gq.ann.vcf \
+--ped variants/family.ped \
+--pass-only \
+--trio "recessive:kid.hom_alt && mom.het && dad.het && kid.GQ >= 20 && mom.GQ >= 20 && dad.GQ >= 20 && kid.DP >= 6 && mom.DP >= 6 && dad.DP >= 6" \
+--out-vcf variants/family.recessive.pass.vcf
+```
+
+After filtering, **292 variants** passed the selected criteria.
+
+The resulting VCF file was:
+
+`variants/family.recessive.pass.vcf`
+
+These variants were subsequently examined to prioritize potential disease-associated candidates.
