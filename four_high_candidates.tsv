@@ -1,3 +1,4 @@
+Gene  Chromosome  Position  Reference  Alternate  Effect  Impact
 LPL	chr8	19819724	C	G	stop_gained	HIGH
 PEBP4	chr8	22570907	GT	G	frameshift_variant	HIGH
 CA2	chr8	86385980	G	A	stop_gained	HIGH
