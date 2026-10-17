@@ -1,0 +1,5 @@
+Gene	Chromosome	Position	Reference	Alternate	Effect	Impact	cDNA_Change	Protein_Change	Interpretation
+LPL	chr8	19819724	C	G	stop_gained	HIGH	c.1421C>G	p.Ser474*	Predicted premature stop codon
+PEBP4	chr8	22570907	GT	G	frameshift_variant	HIGH	c.659delA	p.Asn220fs	Predicted frameshift
+CA2	chr8	86385980	G	A	stop_gained	HIGH	c.291G>A	p.Trp97*	Predicted premature stop codon; strong disease-related candidate
+TBC1D31	chr8	124154697	G	T	splice_donor_variant	HIGH	c.2835+1G>T	Not specified	Predicted splice-donor disruption
